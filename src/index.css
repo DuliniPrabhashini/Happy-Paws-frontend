@@ -1,0 +1,194 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 4%;
+    --foreground: 45 30% 96%;
+
+    --card: 0 0% 8%;
+    --card-foreground: 45 30% 96%;
+
+    --popover: 0 0% 8%;
+    --popover-foreground: 45 30% 96%;
+
+    --primary: 45 80% 55%;
+    --primary-foreground: 0 0% 4%;
+
+    --secondary: 45 60% 45%;
+    --secondary-foreground: 0 0% 4%;
+
+    --muted: 0 0% 14%;
+    --muted-foreground: 45 10% 60%;
+
+    --accent: 45 70% 50%;
+    --accent-foreground: 0 0% 4%;
+
+    --destructive: 0 72% 50%;
+    --destructive-foreground: 45 30% 96%;
+
+    --border: 0 0% 18%;
+    --input: 0 0% 18%;
+    --ring: 45 80% 55%;
+
+    --radius: 1rem;
+
+    /* Custom Happy-Paws tokens - Black Gold theme */
+    --hp-gold: 45 80% 55%;
+    --hp-gold-light: 45 60% 75%;
+    --hp-gold-dark: 45 70% 40%;
+    --hp-black: 0 0% 4%;
+    --hp-charcoal: 0 0% 12%;
+    --hp-cream: 45 30% 90%;
+    --hp-gold-muted: 45 40% 20%;
+    --hp-warm: 35 50% 15%;
+    
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(45 80% 55%) 0%, hsl(35 90% 45%) 100%);
+    --gradient-coral: linear-gradient(135deg, hsl(45 70% 50%) 0%, hsl(30 80% 40%) 100%);
+    --gradient-card: linear-gradient(180deg, hsl(0 0% 10%) 0%, hsl(0 0% 6%) 100%);
+    
+    /* Shadows */
+    --shadow-soft: 0 4px 20px -4px hsl(45 80% 55% / 0.1);
+    --shadow-card: 0 8px 30px -8px hsl(0 0% 0% / 0.5);
+    --shadow-glow: 0 0 40px hsl(45 80% 55% / 0.3);
+
+    --sidebar-background: 0 0% 6%;
+    --sidebar-foreground: 45 30% 90%;
+    --sidebar-primary: 45 80% 55%;
+    --sidebar-primary-foreground: 0 0% 4%;
+    --sidebar-accent: 0 0% 14%;
+    --sidebar-accent-foreground: 45 30% 90%;
+    --sidebar-border: 0 0% 18%;
+    --sidebar-ring: 45 80% 55%;
+
+    /* Override teal-light for gold theme */
+    --hp-teal-light: 45 40% 15%;
+    --hp-peach: 35 50% 15%;
+    --hp-mint: 45 30% 12%;
+    --hp-teal: 45 80% 55%;
+    --hp-blue: 45 70% 50%;
+  }
+
+  .dark {
+    --background: 0 0% 4%;
+    --foreground: 45 30% 96%;
+
+    --card: 0 0% 8%;
+    --card-foreground: 45 30% 96%;
+
+    --popover: 0 0% 8%;
+    --popover-foreground: 45 30% 96%;
+
+    --primary: 45 80% 55%;
+    --primary-foreground: 0 0% 4%;
+
+    --secondary: 45 60% 45%;
+    --secondary-foreground: 0 0% 4%;
+
+    --muted: 0 0% 14%;
+    --muted-foreground: 45 10% 60%;
+
+    --accent: 45 70% 50%;
+    --accent-foreground: 0 0% 4%;
+
+    --destructive: 0 72% 50%;
+    --destructive-foreground: 45 30% 96%;
+
+    --border: 0 0% 18%;
+    --input: 0 0% 18%;
+    --ring: 45 80% 55%;
+
+    --sidebar-background: 0 0% 6%;
+    --sidebar-foreground: 45 30% 90%;
+    --sidebar-primary: 45 80% 55%;
+    --sidebar-primary-foreground: 0 0% 4%;
+    --sidebar-accent: 0 0% 14%;
+    --sidebar-accent-foreground: 45 30% 90%;
+    --sidebar-border: 0 0% 18%;
+    --sidebar-ring: 45 80% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Nunito', sans-serif;
+  }
+}
+
+@layer utilities {
+  .gradient-hero {
+    background: var(--gradient-hero);
+  }
+  
+  .gradient-coral {
+    background: var(--gradient-coral);
+  }
+  
+  .gradient-card {
+    background: var(--gradient-card);
+  }
+  
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+  
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+  
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+  
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  .animate-bounce-slow {
+    animation: bounce 2s ease-in-out infinite;
+  }
+  
+  .animate-pulse-soft {
+    animation: pulse-soft 2s ease-in-out infinite;
+  }
+
+  .text-gradient-gold {
+    background: linear-gradient(135deg, hsl(45 80% 55%) 0%, hsl(35 90% 70%) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse-soft {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-muted rounded-full;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-primary/30 rounded-full hover:bg-primary/50 transition-colors;
+}
