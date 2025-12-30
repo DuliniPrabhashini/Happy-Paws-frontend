@@ -48,17 +48,17 @@ export const authApi = {
 
 // Pet API
 export const petApi = {
-  getMyPets: () => api.get('/home/getMyPet'),
+  getMyPets: () => api.get('/pet/getMyPet'),
   addPet: (data: FormData) =>
-    api.post('/home/addPet', data, {
+    api.post('/pet/addPet', data, {
       headers: { 'Content-Type': 'multipart/form-data' },
     }),
   updatePet: (data: FormData) =>
-    api.post('/home/updatePet', data, {
+    api.post('/pet/updatePet', data, {
       headers: { 'Content-Type': 'multipart/form-data' },
     }),
   deletePet: (petId: string) =>
-    api.delete('/home/deletePet', { data: { petId } }),
+    api.delete('/pet/deletePet', { data: { petId } }),
 };
 
 // Disease API
@@ -90,6 +90,20 @@ export const profileApi = {
   updateProfile: (data: FormData) =>
     api.post('/profile/updateProfile', data, {
       headers: { 'Content-Type': 'multipart/form-data' },
+    }),
+};
+
+// PetDetails API 
+export const petDetailsApi = {
+  // getPetDetails: () => api.get('/pet-details/getMyPetDetails'),
+
+  getPetDetails: (petDetailId) => api.get(`/pet-details/getMyPetDetails/${petDetailId}`),
+  addPetDetail: (data: any) =>
+    api.post('/pet-details/addPetDetail', data),
+
+  deletePetDetail: (detailId: string) =>
+    api.delete('/pet-details/deletePetDetail', {
+      params: { detailId },
     }),
 };
 
