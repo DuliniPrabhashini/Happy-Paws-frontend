@@ -24,12 +24,10 @@ const handleSubmit = async (e: React.FormEvent) => {
   setIsLoading(true);
 
   try {
-    // Remove the callback from login call
     await login(email, password);
     toast.success("Welcome back!");
     
-    // Navigate after login completes and state is updated
-    // Use setTimeout to ensure React has processed the state update
+  
     setTimeout(() => {
       navigate("/home");
     }, 100);
@@ -46,7 +44,6 @@ const handleSubmit = async (e: React.FormEvent) => {
 
   return (
     <div className="min-h-screen flex bg-background">
-      {/* Left Side - Decorative */}
       <div className="hidden lg:flex lg:w-1/2 gradient-hero relative overflow-hidden">
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="text-center text-primary-foreground p-8">
@@ -58,7 +55,6 @@ const handleSubmit = async (e: React.FormEvent) => {
             </p>
           </div>
         </div>
-        {/* Decorative elements */}
         <div className="absolute bottom-10 left-10 opacity-20">
           <PawPrint className="h-32 w-32 rotate-[-20deg]" />
         </div>
@@ -67,7 +63,6 @@ const handleSubmit = async (e: React.FormEvent) => {
         </div>
       </div>
 
-      {/* Right Side - Form */}
       <div className="w-full lg:w-1/2 flex items-center justify-center p-8">
         <div className="w-full max-w-md">
           <Link

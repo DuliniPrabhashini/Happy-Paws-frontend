@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { useAuth } from '@/contexts/AuthContext';
-import { profileApi } from '@/lib/api';
+import { profileApi, diseaseApi } from '@/lib/api';
 import { toast } from 'sonner';
 import {
   User,
@@ -17,6 +17,14 @@ import {
   Calendar,
 } from 'lucide-react';
 
+interface DiseaseArticle {
+  _id: string;
+  title: string;
+  species: string;
+  author: string;
+  createdAt: string;
+}
+
 const Profile: React.FC = () => {
   const { user, updateUser } = useAuth();
   const [name, setName] = useState(user?.name || '');
@@ -24,20 +32,27 @@ const Profile: React.FC = () => {
   const [imagePreview, setImagePreview] = useState(user?.profileImage || '');
   const [isLoading, setIsLoading] = useState(false);
   const [isFetching, setIsFetching] = useState(true);
-
+  const [totalUserPosts, setTotalUserPosts] = useState(0);
+  const [diseases, setDiseases] = useState<DiseaseArticle[]>([]);
+  
   useEffect(() => {
     fetchProfile();
   }, []);
 
   const fetchProfile = async () => {
     try {
+
       const response = await profileApi.getProfile();
       const profile = response.data.user || response.data;
-      console.log(response);
+
       setName(profile.name || user?.name || '');
       setImagePreview(profile.profileImage || user?.profileImage || '');
+
+      const diseasesRes = await diseaseApi.getAllDiseases();
+      setTotalUserPosts(diseasesRes.data.totalUserPosts || 0);
+      setDiseases(diseasesRes.data?.diseases?.slice(0, 5) || []);
+
     } catch (error) {
-      // Use local user data
       setName(user?.name || 'John Doe');
     } finally {
       setIsFetching(false);
@@ -75,7 +90,6 @@ const Profile: React.FC = () => {
       updateUser({ ...user!, name, profileImage: imagePreview });
       toast.success('Profile updated successfully!');
     } catch (error) {
-      // Demo mode
       updateUser({ ...user!, name, profileImage: imagePreview });
       toast.success('Profile updated successfully!');
     } finally {
@@ -84,8 +98,8 @@ const Profile: React.FC = () => {
   };
 
   const stats = [
-    { label: 'Pets', value: '3', icon: PawPrint, color: 'bg-hp-teal-light text-primary' },
-    { label: 'Articles', value: '5', icon: FileText, color: 'bg-hp-peach text-secondary' },
+    { label: 'Pets', value: totalUserPosts, icon: PawPrint, color: 'bg-hp-teal-light text-primary' },
+    { label: 'Articles', value: diseases.length, icon: FileText, color: 'bg-hp-peach text-secondary' },
     { label: 'Member Since', value: 'Dec 2024', icon: Calendar, color: 'bg-hp-mint text-accent' },
   ];
 
@@ -103,15 +117,12 @@ const Profile: React.FC = () => {
     <AppLayout>
       <div className="container mx-auto px-4 py-8">
         <div className="max-w-3xl mx-auto">
-          {/* Header */}
           <div className="mb-8">
             <h1 className="text-3xl font-bold text-foreground mb-2">My Profile</h1>
             <p className="text-muted-foreground">Manage your account settings</p>
           </div>
 
-          {/* Profile Card */}
           <div className="bg-card rounded-2xl shadow-card overflow-hidden animate-fade-in">
-            {/* Cover */}
             <div className="h-32 gradient-hero relative">
               <div className="absolute inset-0 opacity-20">
                 <PawPrint className="absolute top-4 left-10 h-16 w-16 rotate-[-15deg]" />
@@ -119,7 +130,6 @@ const Profile: React.FC = () => {
               </div>
             </div>
 
-            {/* Avatar */}
             <div className="relative px-6 pb-6">
               <div className="absolute -top-16 left-6">
                 <div className="relative">
@@ -150,7 +160,6 @@ const Profile: React.FC = () => {
                 </div>
               </div>
 
-              {/* Form */}
               <div className="pt-20">
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid sm:grid-cols-2 gap-6">
@@ -207,7 +216,6 @@ const Profile: React.FC = () => {
             </div>
           </div>
 
-          {/* Stats */}
           <div className="grid grid-cols-3 gap-4 mt-8">
             {stats.map((stat, index) => {
               const Icon = stat.icon;
@@ -227,7 +235,6 @@ const Profile: React.FC = () => {
             })}
           </div>
 
-          {/* Danger Zone */}
           <div className="mt-8 p-6 bg-destructive/5 border border-destructive/20 rounded-2xl">
             <h3 className="text-lg font-semibold text-destructive mb-2">Danger Zone</h3>
             <p className="text-muted-foreground text-sm mb-4">

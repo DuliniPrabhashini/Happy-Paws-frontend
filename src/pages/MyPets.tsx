@@ -87,7 +87,6 @@ const MyPets: React.FC = () => {
   const [editingPet, setEditingPet] = useState<Pet | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  // Form states
   const [name, setName] = useState("");
   const [type, setType] = useState("");
   const [breed, setBreed] = useState("");
@@ -95,7 +94,6 @@ const MyPets: React.FC = () => {
   const [imageFile, setImageFile] = useState<File | null>(null);
   const [imagePreview, setImagePreview] = useState<string>("");
 
-  // Detail form states
   const [detailType, setDetailType] = useState<
     "VACCINE" | "VET_CHECKUP" | "BIRTHDAY"
   >("VACCINE");
@@ -202,7 +200,6 @@ const MyPets: React.FC = () => {
       return;
     }
 
-    console.log(selectedPet, detailDate, detailDescription);
 
     setIsSubmitting(true);
 
@@ -218,7 +215,6 @@ const MyPets: React.FC = () => {
       await petDetailsApi.addPetDetail(data);
       toast.success("Detail added!");
 
-      // fetchPetDetails();
       fetchPetDetails(selectedPet.id);
       resetDetailForm();
       setIsAddDetailDialogOpen(false);
@@ -236,7 +232,6 @@ const MyPets: React.FC = () => {
       await petDetailsApi.deletePetDetail(detailId);
       toast.success("Detail removed!");
 
-      // fetchPetDetails();
       fetchPetDetails(selectedPet!.id);
     } catch (error) {
       toast.error("Failed to delete detail");
@@ -339,7 +334,6 @@ const MyPets: React.FC = () => {
   return (
     <AppLayout>
       <div className="container mx-auto px-4 py-8">
-        {/* Header */}
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
           <div>
             <h1 className="text-3xl font-bold text-foreground mb-2">My Pets</h1>
@@ -361,7 +355,6 @@ const MyPets: React.FC = () => {
                 </DialogTitle>
               </DialogHeader>
               <form onSubmit={handleSubmit} className="space-y-4 mt-4">
-                {/* Image Upload */}
                 <div className="flex justify-center">
                   <label className="cursor-pointer">
                     <div className="w-24 h-24 rounded-2xl bg-muted border-2 border-dashed border-border flex items-center justify-center overflow-hidden hover:border-primary transition-colors">
@@ -464,7 +457,6 @@ const MyPets: React.FC = () => {
           </Dialog>
         </div>
 
-        {/* Pets Grid */}
         {isLoading ? (
           <div className="flex items-center justify-center py-20">
             <Loader2 className="h-8 w-8 animate-spin text-primary" />
@@ -493,7 +485,6 @@ const MyPets: React.FC = () => {
                 className="bg-card rounded-2xl overflow-hidden shadow-card hover:shadow-xl transition-all duration-300 hover:-translate-y-1 animate-fade-in-up"
                 style={{ animationDelay: `${0.1 * index}s` }}
               >
-                {/* Pet Image */}
                 <div className="h-48 bg-gradient-to-br from-hp-teal-light to-hp-mint flex items-center justify-center">
                   {pet.imageUrl ? (
                     <img
@@ -508,7 +499,6 @@ const MyPets: React.FC = () => {
                   )}
                 </div>
 
-                {/* Pet Info */}
                 <div className="p-6">
                   <div className="flex items-start justify-between mb-4">
                     <div>
@@ -545,7 +535,6 @@ const MyPets: React.FC = () => {
                     >
                       <Trash2 className="h-4 w-4" />
                     </Button>
-                    {/* more details button */}
                     <Button
                       variant="soft"
                       size="sm"
@@ -560,7 +549,6 @@ const MyPets: React.FC = () => {
           </div>
         )}
 
-        {/* More Pet Details Dialog */}
         <Dialog
           open={isDetailsDialogOpen}
           onOpenChange={setIsDetailsDialogOpen}
@@ -574,7 +562,6 @@ const MyPets: React.FC = () => {
 
             {selectedPet && (
               <>
-                {/* Pet Summary */}
                 <div className="flex items-center gap-4 p-4 bg-muted rounded-lg mb-6">
                   {selectedPet.imageUrl ? (
                     <img
@@ -599,18 +586,6 @@ const MyPets: React.FC = () => {
                   </div>
                 </div>
 
-                {/* Add Detail Button */}
-                {/* <div className="flex justify-end mb-4">
-                  <Button
-                    variant="hero"
-                    size="sm"
-                    onClick={() => setIsAddDetailDialogOpen(true)}
-                  >
-                    <PlusCircle className="h-4 w-4 mr-2" />
-                    Add Detail
-                  </Button>
-                </div> */}
-
                 <div className="flex justify-between items-center mb-4">
                   <h3 className="text-lg font-semibold">Pet Records</h3>
 
@@ -624,7 +599,6 @@ const MyPets: React.FC = () => {
                   </Button>
                 </div>
 
-                {/* Details Table */}
                 <div className="border border-border rounded-lg overflow-hidden">
                   <div className="overflow-x-auto">
                     <table className="w-full">
@@ -721,7 +695,6 @@ const MyPets: React.FC = () => {
           </DialogContent>
         </Dialog>
 
-        {/* CHANGED: Added Add Detail Dialog */}
         <Dialog
           open={isAddDetailDialogOpen}
           onOpenChange={setIsAddDetailDialogOpen}

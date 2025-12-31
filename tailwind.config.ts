@@ -60,7 +60,6 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
-        // Happy-Paws custom colors
         hp: {
           coral: "hsl(var(--hp-coral))",
           teal: "hsl(var(--hp-teal))",

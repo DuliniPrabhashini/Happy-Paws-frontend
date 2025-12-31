@@ -59,7 +59,6 @@ const Chat: React.FC = () => {
       };
       setMessages((prev) => [...prev, assistantMessage]);
     } catch (error) {
-      // Demo response
       const demoResponses = [
         "I'd be happy to help you with your pet care question! Based on what you've asked, here are some recommendations:",
         "That's a great question about pet health! Let me share some insights with you.",
@@ -90,15 +89,12 @@ const Chat: React.FC = () => {
   return (
     <AppLayout>
       <div className="container mx-auto px-4 py-8 h-[calc(100vh-200px)] flex flex-col">
-        {/* Header */}
         <div className="mb-6">
           <h1 className="text-3xl font-bold text-foreground mb-2">Pet Assistant</h1>
           <p className="text-muted-foreground">Ask me anything about pet care!</p>
         </div>
 
-        {/* Chat Area */}
         <div className="flex-1 bg-card rounded-2xl shadow-card overflow-hidden flex flex-col">
-          {/* Messages */}
           <div className="flex-1 overflow-y-auto p-6 space-y-6">
             {messages.length === 0 ? (
               <div className="h-full flex flex-col items-center justify-center text-center">
@@ -113,7 +109,6 @@ const Chat: React.FC = () => {
                   I'm here to help!
                 </p>
 
-                {/* Suggested Questions */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 w-full max-w-lg">
                   {suggestedQuestions.map((question, index) => (
                     <button
@@ -138,7 +133,6 @@ const Chat: React.FC = () => {
                     )}
                     style={{ animationDelay: `${0.05 * index}s` }}
                   >
-                    {/* Avatar */}
                     <div
                       className={cn(
                         'w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0',
@@ -154,7 +148,6 @@ const Chat: React.FC = () => {
                       )}
                     </div>
 
-                    {/* Message Bubble */}
                     <div
                       className={cn(
                         'max-w-[70%] rounded-2xl px-4 py-3',
@@ -183,7 +176,6 @@ const Chat: React.FC = () => {
                   </div>
                 ))}
 
-                {/* Loading Indicator */}
                 {isLoading && (
                   <div className="flex gap-3 animate-fade-in">
                     <div className="w-10 h-10 rounded-full gradient-hero flex items-center justify-center">
@@ -203,7 +195,6 @@ const Chat: React.FC = () => {
             )}
           </div>
 
-          {/* Input Area */}
           <div className="p-4 border-t border-border bg-background/50">
             <div className="flex gap-3 max-w-3xl mx-auto">
               <Input

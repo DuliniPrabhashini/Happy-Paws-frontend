@@ -57,7 +57,6 @@ interface Comment {
 
 const speciesOptions = ['Dog', 'Cat', 'Bird', 'Rabbit', 'Fish', 'Hamster', 'All Pets'];
 
-// Move DiseaseCard component outside of Diseases component
 interface DiseaseCardProps {
   disease: Disease;
   showActions?: boolean;
@@ -73,12 +72,10 @@ const DiseaseCard: React.FC<DiseaseCardProps> = ({
   onDelete, 
   onViewComments 
 }) => {
-  // Ensure symptoms is always an array
   const diseaseSymptoms = disease.symptoms || [];
   
   return (
     <div className="bg-card rounded-2xl overflow-hidden shadow-card hover:shadow-xl transition-all duration-300">
-      {/* Image */}
       <div className="h-40 bg-gradient-to-br from-hp-teal-light to-hp-mint flex items-center justify-center">
         {disease.image ? (
           <img src={disease.image} alt={disease.title} className="w-full h-full object-cover" />
@@ -87,7 +84,6 @@ const DiseaseCard: React.FC<DiseaseCardProps> = ({
         )}
       </div>
 
-      {/* Content */}
       <div className="p-5">
         <div className="flex items-center gap-2 mb-2">
           <span className="px-2 py-1 bg-hp-peach text-secondary text-xs font-medium rounded-full">
@@ -98,7 +94,6 @@ const DiseaseCard: React.FC<DiseaseCardProps> = ({
         <h3 className="text-lg font-bold text-foreground mb-2 line-clamp-1">{disease.title}</h3>
         <p className="text-muted-foreground text-sm mb-3 line-clamp-2">{disease.description}</p>
 
-        {/* Symptoms */}
         <div className="flex flex-wrap gap-2 mb-3">
           {diseaseSymptoms.slice(0, 3).map((symptom, i) => (
             <span
@@ -116,9 +111,7 @@ const DiseaseCard: React.FC<DiseaseCardProps> = ({
           )}
         </div>
 
-        {/* Footer - Fixed for zoom compatibility */}
         <div className="flex items-center justify-between pt-3 border-t border-border min-w-0">
-          {/* Author info - Left side with truncation */}
           <div className="flex items-center gap-2 text-xs text-muted-foreground min-w-0 flex-1">
             <User className="h-3 w-3 flex-shrink-0" />
             <span className="truncate">{disease.author}</span>
@@ -127,7 +120,6 @@ const DiseaseCard: React.FC<DiseaseCardProps> = ({
             <span className="truncate">{disease.createdAt}</span>
           </div>
 
-          {/* Action buttons - Right side with fixed sizing */}
           <div className="flex items-center gap-2 flex-shrink-0 ml-2">
             <Button
               variant="ghost"
@@ -181,7 +173,6 @@ const Diseases: React.FC = () => {
   const [selectedDisease, setSelectedDisease] = useState<Disease | null>(null);
   const [commentText, setCommentText] = useState('');
 
-  // Form states
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [species, setSpecies] = useState('');
@@ -231,7 +222,6 @@ const Diseases: React.FC = () => {
   }))
 );
     } catch (error) {
-      // Mock data for demo
       const mockDiseases: Disease[] = [
         {
           id: '1',
@@ -340,7 +330,6 @@ const Diseases: React.FC = () => {
       setIsDialogOpen(false);
       resetForm();
     } catch (error) {
-      // Demo mode
       const newDisease: Disease = {
         id: editingDisease?.id || Date.now().toString(),
         title,
@@ -409,7 +398,6 @@ const Diseases: React.FC = () => {
   return (
     <AppLayout>
       <div className="container mx-auto px-4 py-8">
-        {/* Header */}
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
           <div>
             <h1 className="text-3xl font-bold text-foreground mb-2">Disease Articles</h1>
@@ -427,7 +415,6 @@ const Diseases: React.FC = () => {
                 <DialogTitle>{editingDisease ? 'Edit Article' : 'Create New Article'}</DialogTitle>
               </DialogHeader>
               <form onSubmit={handleSubmit} className="space-y-4 mt-4">
-                {/* Image Upload */}
                 <div className="flex justify-center">
                   <label className="cursor-pointer">
                     <div className="w-full h-32 rounded-xl bg-muted border-2 border-dashed border-border flex items-center justify-center overflow-hidden hover:border-primary transition-colors">
@@ -502,7 +489,6 @@ const Diseases: React.FC = () => {
           </Dialog>
         </div>
 
-        {/* Tabs */}
         <Tabs defaultValue="all" className="w-full">
           <TabsList className="mb-6">
             <TabsTrigger key="all" value="all">All Articles</TabsTrigger>
@@ -565,7 +551,6 @@ const Diseases: React.FC = () => {
           </TabsContent>
         </Tabs>
 
-        {/* Comments Dialog */}
         <Dialog open={!!selectedDisease} onOpenChange={() => setSelectedDisease(null)}>
           <DialogContent className="sm:max-w-lg">
             <DialogHeader>

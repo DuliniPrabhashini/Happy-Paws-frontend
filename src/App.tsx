@@ -6,7 +6,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AuthProvider } from "@/contexts/AuthContext";
 import ProtectedRoute from "@/components/ProtectedRoute";
 
-// Pages
 import Landing from "./pages/Landing";
 import Login from "./pages/auth/Login";
 import Register from "./pages/auth/Register";
@@ -29,13 +28,11 @@ const App = () => (
           <Sonner position="top-right" />
 
           <Routes>
-            {/* Public Routes */}
             <Route path="/" element={<Landing />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/forgot-password" element={<ForgotPassword />} />
 
-            {/* Protected Routes */}
             <Route
               path="/home"
               element={
@@ -78,7 +75,6 @@ const App = () => (
               }
             />
 
-            {/* Catch-all */}
             <Route path="*" element={<NotFound />} />
           </Routes>
         </TooltipProvider>

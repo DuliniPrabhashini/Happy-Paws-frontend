@@ -37,7 +37,6 @@ const Navbar: React.FC = () => {
     <nav className="sticky top-0 z-50 bg-card/80 backdrop-blur-lg border-b border-border shadow-soft">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
-          {/* Logo */}
           <Link to="/home" className="flex items-center gap-2 group">
             <div className="w-10 h-10 gradient-hero rounded-xl flex items-center justify-center shadow-glow group-hover:scale-105 transition-transform">
               <PawPrint className="h-6 w-6 text-primary-foreground" />
@@ -47,7 +46,6 @@ const Navbar: React.FC = () => {
             </span>
           </Link>
 
-          {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center gap-1">
             {navItems.map((item) => {
               const Icon = item.icon;
@@ -70,7 +68,6 @@ const Navbar: React.FC = () => {
             })}
           </div>
 
-          {/* User Menu */}
           <div className="hidden lg:flex items-center gap-4">
             <div className="flex items-center gap-2 text-sm">
               <div className="w-10 h-10 rounded-full overflow-hidden flex items-center justify-center border-2 border-primary">
@@ -95,7 +92,6 @@ const Navbar: React.FC = () => {
             </Button>
           </div>
 
-          {/* Mobile Menu Button */}
           <Button
             variant="ghost"
             size="icon"
@@ -106,7 +102,6 @@ const Navbar: React.FC = () => {
           </Button>
         </div>
 
-        {/* Mobile Navigation */}
         {isMenuOpen && (
           <div className="lg:hidden py-4 border-t border-border animate-fade-in">
             <div className="flex flex-col gap-2">

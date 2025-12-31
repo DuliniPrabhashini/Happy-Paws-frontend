@@ -48,7 +48,6 @@ const Register: React.FC = () => {
 
   return (
     <div className="min-h-screen flex bg-background">
-      {/* Left Side - Form */}
       <div className="w-full lg:w-1/2 flex items-center justify-center p-8">
         <div className="w-full max-w-md">
           <Link
@@ -163,7 +162,6 @@ const Register: React.FC = () => {
         </div>
       </div>
 
-      {/* Right Side - Decorative */}
       <div className="hidden lg:flex lg:w-1/2 gradient-coral relative overflow-hidden">
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="text-center text-secondary-foreground p-8">
@@ -174,7 +172,6 @@ const Register: React.FC = () => {
             </p>
           </div>
         </div>
-        {/* Decorative elements */}
         <div className="absolute bottom-10 right-10 opacity-20">
           <PawPrint className="h-32 w-32 rotate-[20deg]" />
         </div>

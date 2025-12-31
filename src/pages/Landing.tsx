@@ -27,7 +27,6 @@ const Landing: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Hero Section */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 gradient-hero opacity-5" />
         <div className="absolute top-20 left-10 w-64 h-64 bg-primary/10 rounded-full blur-3xl" />
@@ -35,7 +34,6 @@ const Landing: React.FC = () => {
         
         <div className="container mx-auto px-4 py-20 md:py-32 relative">
           <div className="max-w-4xl mx-auto text-center">
-            {/* Logo */}
             <div className="inline-flex items-center gap-3 mb-8 animate-fade-in">
               <div className="w-16 h-16 gradient-hero rounded-2xl flex items-center justify-center shadow-glow animate-float">
                 <PawPrint className="h-9 w-9 text-primary-foreground" />
@@ -45,7 +43,6 @@ const Landing: React.FC = () => {
               </h1>
             </div>
 
-            {/* Tagline */}
             <p className="text-2xl md:text-4xl font-bold text-foreground mb-4 animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
               Care, Protect & Love
               <span className="block text-gradient-gold">
@@ -58,7 +55,6 @@ const Landing: React.FC = () => {
               and getting expert advice from our AI assistant.
             </p>
 
-            {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
               <Link to="/register">
                 <Button variant="hero" size="xl" className="w-full sm:w-auto">
@@ -75,7 +71,6 @@ const Landing: React.FC = () => {
           </div>
         </div>
 
-        {/* Decorative paw prints */}
         <div className="absolute bottom-10 left-1/4 opacity-10">
           <PawPrint className="h-20 w-20 text-primary rotate-[-15deg]" />
         </div>
@@ -84,7 +79,6 @@ const Landing: React.FC = () => {
         </div>
       </section>
 
-      {/* Features Section */}
       <section className="py-20 bg-muted/30">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
@@ -121,7 +115,6 @@ const Landing: React.FC = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
       <section className="py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center bg-card rounded-3xl p-10 md:p-16 shadow-card relative overflow-hidden">
@@ -146,7 +139,6 @@ const Landing: React.FC = () => {
         </div>
       </section>
 
-      {/* Footer */}
       <footer className="py-8 border-t border-border">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">

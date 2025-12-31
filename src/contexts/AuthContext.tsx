@@ -57,7 +57,6 @@ useEffect(() => {
 }, []);
 
 
-// In AuthContext.tsx
 const login = async (email: string, password: string) => {
   try {
     const response = await authApi.login(email, password);
@@ -69,7 +68,6 @@ const login = async (email: string, password: string) => {
       if (!accessToken) {
         throw new Error("Backend did not return accessToken");
       }
-    // Transform to match frontend expectations
 
       const userData: User = {
         id: backendUser._id || "",
@@ -80,7 +78,7 @@ const login = async (email: string, password: string) => {
       };
 
     localStorage.setItem("accessToken", accessToken);
-    localStorage.setItem("refreshToken", ""); // Empty for now
+    localStorage.setItem("refreshToken", ""); 
     localStorage.setItem("user", JSON.stringify(userData));
 
     setUser(userData);

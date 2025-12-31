@@ -36,7 +36,6 @@
 
     --radius: 1rem;
 
-    /* Custom Happy-Paws tokens - Black Gold theme */
     --hp-gold: 45 80% 55%;
     --hp-gold-light: 45 60% 75%;
     --hp-gold-dark: 45 70% 40%;
@@ -46,12 +45,10 @@
     --hp-gold-muted: 45 40% 20%;
     --hp-warm: 35 50% 15%;
     
-    /* Gradients */
     --gradient-hero: linear-gradient(135deg, hsl(45 80% 55%) 0%, hsl(35 90% 45%) 100%);
     --gradient-coral: linear-gradient(135deg, hsl(45 70% 50%) 0%, hsl(30 80% 40%) 100%);
     --gradient-card: linear-gradient(180deg, hsl(0 0% 10%) 0%, hsl(0 0% 6%) 100%);
     
-    /* Shadows */
     --shadow-soft: 0 4px 20px -4px hsl(45 80% 55% / 0.1);
     --shadow-card: 0 8px 30px -8px hsl(0 0% 0% / 0.5);
     --shadow-glow: 0 0 40px hsl(45 80% 55% / 0.3);
@@ -65,7 +62,6 @@
     --sidebar-border: 0 0% 18%;
     --sidebar-ring: 45 80% 55%;
 
-    /* Override teal-light for gold theme */
     --hp-teal-light: 45 40% 15%;
     --hp-peach: 35 50% 15%;
     --hp-mint: 45 30% 12%;
@@ -179,7 +175,6 @@
   50% { opacity: 0.7; }
 }
 
-/* Scrollbar styling */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
