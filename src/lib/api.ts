@@ -71,7 +71,8 @@ export const diseaseApi = {
       headers: { "Content-Type": "multipart/form-data" },
     }),
   deleteDisease: (diseaseId: string) =>
-    api.delete("/diseases/deleteDisease", { data: { diseaseId } }),
+  api.delete(`/diseases/deleteDisease/${diseaseId}`),
+
 };
 
 export const chatApi = {

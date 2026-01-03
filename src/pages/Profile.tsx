@@ -48,7 +48,7 @@ const Profile: React.FC = () => {
       setName(profile.name || user?.name || '');
       setImagePreview(profile.profileImage || user?.profileImage || '');
 
-      const diseasesRes = await diseaseApi.getAllDiseases();
+      const diseasesRes = await diseaseApi.getMyDiseases();
       setTotalUserPosts(diseasesRes.data.totalUserPosts || 0);
       setDiseases(diseasesRes.data?.diseases?.slice(0, 5) || []);
 
