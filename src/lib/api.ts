@@ -1,7 +1,7 @@
 import axios, { AxiosError, AxiosRequestConfig } from "axios";
 
-const API_BASE_URL = "http://localhost:5000/api/happy-paws";
-
+// const API_BASE_URL = "http://localhost:5000/api/happy-paws";
+const API_BASE_URL = "https://happy-paws-backend.vercel.app/api/happy-paws"
 export const api = axios.create({
   baseURL: API_BASE_URL,
   headers: {
