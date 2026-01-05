@@ -24,7 +24,6 @@ const ForgotPassword: React.FC = () => {
   const [isResetting, setIsResetting] = useState(false);
   const [codeSent, setCodeSent] = useState(false);
 
-  // Send verification code
   const handleSendCode = async () => {
     if (!email) {
       toast.error('Please enter your email');
@@ -45,7 +44,6 @@ const ForgotPassword: React.FC = () => {
     }
   };
 
-  // Reset password
   const handleResetPassword = async (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -100,7 +98,6 @@ const ForgotPassword: React.FC = () => {
         </p>
 
         <form onSubmit={handleResetPassword} className="space-y-6">
-          {/* Email + Send Code */}
           <div className="space-y-2">
             <Label>Email</Label>
             <div className="flex gap-2">
@@ -129,7 +126,6 @@ const ForgotPassword: React.FC = () => {
             </div>
           </div>
 
-          {/* Verification Code */}
           {codeSent && (
             <>
               <div className="space-y-2">
@@ -145,7 +141,6 @@ const ForgotPassword: React.FC = () => {
                 </div>
               </div>
 
-              {/* New Password */}
               <div className="space-y-2">
                 <Label>New Password</Label>
                 <div className="relative">
@@ -160,7 +155,6 @@ const ForgotPassword: React.FC = () => {
                 </div>
               </div>
 
-              {/* Confirm Password */}
               <div className="space-y-2">
                 <Label>Confirm Password</Label>
                 <div className="relative">
@@ -175,7 +169,6 @@ const ForgotPassword: React.FC = () => {
                 </div>
               </div>
 
-              {/* Reset Button */}
               <Button
                 type="submit"
                 variant="hero"

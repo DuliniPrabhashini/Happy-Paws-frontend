@@ -138,7 +138,7 @@ export const diseaseApi = {
 };
 
 export const chatApi = {
-  sendMessage: (message: string) => api.post("/chat/chatbot", { message }),
+  sendMessage: (data: string) => api.post("/chat/chatbot", { data }),
 };
 
 export const profileApi = {
