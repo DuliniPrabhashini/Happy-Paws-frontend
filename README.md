@@ -3,6 +3,13 @@
 Happy Paws is a pet management and knowledge-sharing web application designed for pet owners.  
 It allows users to manage their own pet details, read and write articles about pets and pet diseases, interact with an AI-powered chatbot for pet-related queries, and receive email reminders for important pet-related activities.
 
+### 🌍 Deployed URLs
+
+**Frontend:**
+👉 https://happy-paws-frontend.vercel.app/
+
+**Backend: **
+👉 https://happy-paws-backend.vercel.app/
 ---
 
 ## 📌 Project Description
