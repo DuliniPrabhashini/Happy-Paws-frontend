@@ -78,7 +78,7 @@ const login = async (email: string, password: string) => {
       };
 
     localStorage.setItem("accessToken", accessToken);
-    localStorage.setItem("refreshToken", ""); 
+    localStorage.setItem("refreshToken", refreshToken); 
     localStorage.setItem("user", JSON.stringify(userData));
 
     setUser(userData);
