@@ -83,4 +83,4 @@ The platform also supports email reminders to help pet owners never miss importa
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/happy-paws-backend.git
+   git clone https://github.com/DuliniPrabhashini/Happy-Paws-backend
